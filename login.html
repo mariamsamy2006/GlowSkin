@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GlowSkin – Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      background: var(--bg-pink, #fdf0f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+    .auth-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 4px 30px rgba(200,100,100,0.08);
+    }
+    .auth-logo {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .auth-logo img { height: 48px; }
+    .auth-logo h1 {
+      font-size: 22px;
+      color: #3a2a2a;
+      margin: 8px 0 0;
+    }
+    .auth-tabs {
+      display: flex;
+      background: #fdf0f0;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 28px;
+    }
+    .auth-tabs button {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #999;
+      transition: all 0.2s;
+    }
+    .auth-tabs button.active {
+      background: #fff;
+      color: #c96060;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(200,100,100,0.1);
+    }
+    .auth-form { display: none; flex-direction: column; gap: 16px; }
+    .auth-form.active { display: flex; }
+    .auth-form label {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .auth-form input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #f0d0d0;
+      border-radius: 12px;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+      transition: border 0.2s;
+    }
+    .auth-form input:focus { border-color: #c96060; }
+    .btn-submit {
+      background: #e8a0a0;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #c96060; }
+    .auth-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .auth-footer a {
+      color: #c96060;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-box">
+
+      <div class="auth-logo">
+        <img src="images/logo.png" alt="GlowSkin" onerror="this.style.display='none'">
+        <h1>GlowSkin <span style="font-weight:300;font-size:14px;color:#aaa;">SKINCARE</span></h1>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="active" onclick="switchTab('login')">Login</button>
+        <button onclick="switchTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <div class="auth-form active" id="login">
+        <div>
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" />
+        </div>
+        <button class="btn-submit">Login</button>
+        <div class="auth-footer">
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="auth-form" id="signup">
+        <div>
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" />
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" />
+        </div>
+        <div>
+          <label>Confirm Password</label>
+          <input type="password" placeholder="••••••••" />
+        </div>
+        <button class="btn-submit">Create Account</button>
+      </div>
+
+      <div class="auth-footer" style="margin-top:24px;">
+        <a href="index.html">← Back to Home</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.auth-tabs button').forEach(b => b.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // فتح Sign Up تلقائي لو جاي من رابط signup
+    if (window.location.hash === '#signup') switchTab('signup');
+  </script>
+</body>
+</html>

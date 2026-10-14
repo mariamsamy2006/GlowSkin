@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowSkin Skincare</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14" fill="#fde8e8"/>
+      <path d="M16 8 C10 10 8 16 12 20 C14 22 18 22 20 20 C24 16 22 10 16 8Z" fill="#f4a4a4"/>
+      <path d="M16 8 C16 12 18 16 20 18" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="logo-text">GlowSkin</div>
+      <div class="logo-sub">Skincare</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#categories">Products</a></li>
+    <li><a href="#routine">Routine</a></li>
+    <li><a href="#reviews">About Us</a></li>
+    <li><a href="#newsletter">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="showToast('Cart opened!')">🛍️<span class="cart-badge" id="cart-count">0</span></button>
+    <a href="login.html"><button class="login-btn">Login / Sign up</button></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">🌿 100% Natural Ingredients</div>
+    <h1>Healthy Skin,<br><span>Natural Glow</span></h1>
+    <p>Discover skincare that makes your skin feel beautiful and confident. Crafted with love and the finest botanicals.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+      <button class="btn-outline" onclick="document.getElementById('routine').scrollIntoView({behavior:'smooth'})">Explore Routine</button>
+    </div>
+  </div>
+  <div class="hero-products">
+    <img src="images/photo_2026-05-10_11-59-53.jpg" alt="">
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-header reveal">
+    <div class="divider"><div class="divider-line"></div><span class="leaf-icon">🌿</span><div class="divider-line"></div></div>
+    <h2>Shop by Category</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card reveal"><div class="cat-img-wrap"><img src="images/jpg.1.jpeg" alt="Cleanser"></div><h3>Cleanser</h3><button class="btn-sm">Shop Now</button></div>
+    <div class="cat-card reveal"><div class="cat-img-wrap"><img src="images/jpg.2.jpeg" alt="Serum"></div><h3>Serum</h3><button class="btn-sm">Shop Now</button></div>
+    <div class="cat-card reveal"><div class="cat-img-wrap"><img src="images/jpg.3.jpeg" alt="Moisturizer"></div><h3>Moisturizer</h3><button class="btn-sm">Shop Now</button></div>
+    <div class="cat-card reveal"><div class="cat-img-wrap"><img src="images/jpg.4.jpeg" alt="Sunscreen"></div><h3>Sunscreen</h3><button class="btn-sm">Shop Now</button></div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-header reveal">
+    <div class="divider"><div class="divider-line"></div><span class="leaf-icon">🌿</span><div class="divider-line"></div></div>
+    <h2>Featured Products</h2>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card reveal"><div class="prod-img"><img src="images/jpg.5.jpeg" alt="Hydrating Cleanser"></div><div class="prod-name">Hydrating Cleanser</div><div class="prod-price">$18.00</div><button class="btn-add" onclick="addToCart()">Add to Cart</button></div>
+    <div class="prod-card reveal"><span class="badge">Best Seller</span><div class="prod-img"><img src="images/photo_2026-05-10_11-33-52.jpg" alt="Niacinamide Serum"></div><div class="prod-name">Niacinamide Serum</div><div class="prod-price">$24.00</div><button class="btn-add" onclick="addToCart()">Add to Cart</button></div>
+    <div class="prod-card reveal"><div class="prod-img"><img src="images/photo_2026-05-10_11-33-59.jpg" alt="Daily Moisturizer"></div><div class="prod-name">Daily Moisturizer</div><div class="prod-price">$20.00</div><button class="btn-add" onclick="addToCart()">Add to Cart</button></div>
+    <div class="prod-card reveal"><span class="badge" style="background:var(--pink)">New</span><div class="prod-img"><img src="images/photo_2026-05-10_11-24-25.jpg" alt="Sun Protection SPF 50"></div><div class="prod-name">Sun Protection SPF 50</div><div class="prod-price">$16.00</div><button class="btn-add" onclick="addToCart()">Add to Cart</button></div>
+  </div>
+</section>
+
+<!-- ROUTINE -->
+<section class="routine" id="routine">
+  <div class="section-header reveal">
+    <div class="divider"><div class="divider-line"></div><span class="leaf-icon">🌿</span><div class="divider-line"></div></div>
+    <h2>Your Daily Skincare Routine</h2>
+  </div>
+  <div class="routine-steps">
+    <div class="step reveal"><div class="step-circle">🧴</div><div class="step-num">1. Cleanse</div><div class="step-title">Clean & Fresh</div><div class="step-desc">Remove dirt & impurities to start with a clean canvas</div></div>
+    <div class="step reveal"><div class="step-circle">💚</div><div class="step-num">2. Treat</div><div class="step-title">Target & Treat</div><div class="step-desc">Use serum to target your specific skin concerns</div></div>
+    <div class="step reveal"><div class="step-circle">🫙</div><div class="step-num">3. Moisturize</div><div class="step-title">Hydrate & Nourish</div><div class="step-desc">Hydrate and nourish your skin for all-day comfort</div></div>
+    <div class="step reveal"><div class="step-circle">☀️</div><div class="step-num">4. Protect</div><div class="step-title">Shield & Glow</div><div class="step-desc">Shield your skin from harmful UV rays every day</div></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header reveal">
+    <div class="divider"><div class="divider-line"></div><span class="leaf-icon">🌿</span><div class="divider-line"></div></div>
+    <h2>What Our Customers Say</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal"><div class="reviewer"><div class="reviewer-avatar">👩</div><div><div class="reviewer-name">Sarah A.</div><div class="stars">★★★★★</div></div></div><p class="review-text">"GlowSkin products made my skin so soft and glowing! Best skincare I've ever tried."</p></div>
+    <div class="review-card reveal"><div class="reviewer"><div class="reviewer-avatar">👩‍🦱</div><div><div class="reviewer-name">Maya R.</div><div class="stars">★★★★★</div></div></div><p class="review-text">"Highly recommend! My go-to skincare brand. Love every single product!"</p></div>
+    <div class="review-card reveal"><div class="reviewer"><div class="reviewer-avatar">👩‍🦳</div><div><div class="reviewer-name">Lina M.</div><div class="stars">★★★★★</div></div></div><p class="review-text">"Amazing quality and natural ingredients. My skin has never looked better!"</p></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <h2 class="reveal">Join Our Skincare Community</h2>
+  <p class="reveal">Get tips, offers, and updates straight to your inbox.</p>
+  <div class="nl-form reveal">
+    <input type="email" class="nl-input" placeholder="Enter your email">
+    <button class="btn-subscribe" onclick="handleSubscribe()">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" fill="rgba(244,164,164,0.2)"/>
+          <path d="M16 8 C10 10 8 16 12 20 C14 22 18 22 20 20 C24 16 22 10 16 8Z" fill="#f4a4a4"/>
+        </svg>
+        <div><div class="logo-text">GlowSkin</div><div class="logo-sub">Skincare</div></div>
+      </div>
+      <p class="footer-tagline">Natural care for healthy, beautiful skin. Made with love and the finest botanicals.</p>
+      <div class="socials">
+        <a href="#" class="social-btn">📸</a>
+        <a href="#" class="social-btn">👤</a>
+        <a href="#" class="social-btn">🎵</a>
+        <a href="#" class="social-btn">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#categories">Products</a></li>
+        <li><a href="#routine">Routine</a></li>
+        <li><a href="#reviews">About Us</a></li>
+        <li><a href="#newsletter">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Customer Service</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2024 GlowSkin. All rights reserved.</div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">🛍️</span>
+  <span id="toast-msg">Added to cart!</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
